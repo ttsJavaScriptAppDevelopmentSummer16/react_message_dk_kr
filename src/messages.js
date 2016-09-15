@@ -58,19 +58,19 @@ class MessageList extends Component {
     }
   }
 
-  loadSwitch = (event) => {
+  loadSwitch = (e) => {
     let currentLoad = this.state.loadMore
     this.setState({loadMore: !currentLoad})
   }
 
   belongsToCurrentUser = (message) => {
-    return this.state.currentUser === message.user
+    return (this.state.currentUser === message.user)
   }
 
   render() {
 
     let messageMap = this.state.messages.map(function(message, i){
-      let message_style = this.belongsToCurrentUser(message) ? style.red : style.norm
+      let message_style = belongsToCurrentUser(message) ? style.red : style.norm
       return (<Message key={i} message={message} style={message_style}/>)
     })
 
